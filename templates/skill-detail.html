@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ skill.name }} Skill</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    <section class="skill-detail-page">
+        <style>
+    .skill-detail-page {
+        position: relative;
+        min-height: 100vh;
+        padding: 100px 7%;
+        overflow: hidden;
+        background:
+            radial-gradient(circle at 20% 24%, rgba(59, 130, 246, 0.24), transparent 32%),
+            radial-gradient(circle at 82% 78%, rgba(245, 158, 11, 0.16), transparent 36%),
+            linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #111827 100%);
+        color: #fff;
+    }
+
+    .skill-detail-page::before {
+        content: "";
+        position: absolute;
+        width: 560px;
+        height: 560px;
+        left: -220px;
+        top: 80px;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.16);
+        filter: blur(90px);
+    }
+
+    .skill-detail-page::after {
+        content: "";
+        position: absolute;
+        width: 460px;
+        height: 460px;
+        right: -180px;
+        bottom: 40px;
+        border-radius: 50%;
+        background: rgba(245, 158, 11, 0.12);
+        filter: blur(90px);
+    }
+
+    .skill-detail-container {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .back-home {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 46px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #dbeafe;
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid rgba(59, 130, 246, 0.28);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+        margin-bottom: 42px;
+        transition: 0.3s ease;
+    }
+
+    .back-home:hover {
+        color: #fff;
+        background: rgba(59, 130, 246, 0.32);
+        transform: translateY(-3px);
+        box-shadow: 0 18px 42px rgba(59, 130, 246, 0.24);
+    }
+
+    .skill-detail-card {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 70px;
+        align-items: center;
+    }
+
+    .skill-detail-icon {
+        position: relative;
+        width: 320px;
+        height: 320px;
+        border-radius: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+            linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)) padding-box,
+            linear-gradient(135deg, #3b82f6, #f59e0b) border-box;
+        border: 2px solid transparent;
+        box-shadow:
+            0 28px 80px rgba(0, 0, 0, 0.35),
+            0 0 50px rgba(59, 130, 246, 0.22);
+        backdrop-filter: blur(14px);
+        transition: 0.35s ease;
+    }
+
+    .skill-detail-icon:hover {
+        transform: translateY(-6px) rotate(1deg);
+        box-shadow:
+            0 34px 90px rgba(0, 0, 0, 0.35),
+            0 0 64px rgba(59, 130, 246, 0.28);
+    }
+
+    .skill-detail-icon::before {
+        content: "";
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #3b82f6, #f59e0b);
+        transform: rotate(-7deg);
+        z-index: -1;
+        opacity: 0.9;
+    }
+
+    .skill-detail-icon i {
+        font-size: 8rem;
+        color: #fff;
+        filter: drop-shadow(0 18px 28px rgba(59, 130, 246, 0.42));
+    }
+
+    .skill-detail-icon img {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 28px rgba(59, 130, 246, 0.35));
+    }
+
+    .skill-detail-info {
+        padding: 44px;
+        border-radius: 32px;
+        background: rgba(255, 255, 255, 0.075);
+        border: 1px solid rgba(59, 130, 246, 0.22);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+        backdrop-filter: blur(14px);
+    }
+
+    .skill-detail-info .intro-text {
+        display: inline-block;
+        color: #fbbf24;
+        letter-spacing: 5px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 14px;
+    }
+
+    .skill-detail-info h1 {
+        font-size: clamp(48px, 7vw, 82px);
+        line-height: 1;
+        margin: 0 0 22px;
+        color: #fff;
+    }
+
+    .skill-detail-info h1::after {
+        content: "";
+        display: block;
+        width: 86px;
+        height: 5px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #2563eb, #f59e0b);
+        margin-top: 18px;
+    }
+
+    .skill-stars {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-bottom: 26px;
+    }
+
+    .star {
+        font-size: 30px;
+        color: rgba(255, 255, 255, 0.22);
+    }
+
+    .star.filled {
+        color: #fbbf24;
+        text-shadow: 0 0 16px rgba(59, 130, 246, 0.55);
+    }
+
+    .skill-stars small {
+        margin-left: 12px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        color: #fff;
+        background: rgba(59, 130, 246, 0.22);
+        border: 1px solid rgba(59, 130, 246, 0.28);
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .skill-description {
+        font-size: 17px;
+        line-height: 1.9;
+        color: #d7deea;
+        margin-bottom: 30px;
+    }
+
+    .skill-detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+    }
+
+    .skill-detail-grid > div {
+        padding: 24px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.075);
+        border: 1px solid rgba(59, 130, 246, 0.18);
+    }
+
+    .skill-detail-grid h3 {
+        font-size: 20px;
+        margin-bottom: 16px;
+        color: #fff;
+    }
+
+    .skill-detail-grid ul {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .skill-detail-grid li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 12px;
+        color: #d7deea;
+        line-height: 1.6;
+    }
+
+    .skill-detail-grid li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #2563eb, #f59e0b);
+        box-shadow: 0 0 12px rgba(59, 130, 246, 0.55);
+    }
+
+    @media (max-width: 768px) {
+        .skill-detail-page {
+            padding: 90px 6%;
+        }
+
+        .skill-detail-card {
+            grid-template-columns: 1fr;
+            gap: 42px;
+        }
+
+        .skill-detail-icon {
+            width: 240px;
+            height: 240px;
+            margin: 0 auto;
+        }
+
+        .skill-detail-icon::before {
+            width: 200px;
+            height: 200px;
+        }
+
+        .skill-detail-icon i {
+            font-size: 6rem;
+        }
+
+        .skill-detail-icon img {
+            width: 120px;
+            height: 120px;
+        }
+
+        .skill-detail-info {
+            padding: 32px 24px;
+        }
+
+        .skill-detail-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .skill-detail-info h1 {
+            font-size: 48px;
+        }
+    }
+</style>
+        </style>
+
+        <div class="skill-detail-container">
+            <a href="{{ url_for('section_page', section_name='skills') }}" class="back-home animate-up delay-1">Back to Skills</a>
+
+            <div class="skill-detail-card">
+                <div class="skill-detail-icon animate-left delay-2">
+                    {% if skill.image %}
+                        <img src="{{ url_for('static', filename=skill.image) }}" alt="{{ skill.name }}">
+                    {% else %}
+                        <i class="{{ skill.icon }}"></i>
+                    {% endif %}
+                </div>
+
+                <div class="skill-detail-info animate-right delay-3">
+                    <span class="intro-text">SKILL DETAILS</span>
+                    <h1>{{ skill.name }}</h1>
+
+                    <div class="skill-stars">
+                        {% for i in range(1, 6) %}
+                            {% if i <= skill.rating %}
+                                <span class="star filled">★</span>
+                            {% else %}
+                                <span class="star">★</span>
+                            {% endif %}
+                        {% endfor %}
+                        <small>{{ skill.rating }}/5</small>
+                    </div>
+
+                    <p class="skill-description">{{ skill.description }}</p>
+
+                    <div class="skill-detail-grid">
+                        <div>
+                            <h3>What I Learned</h3>
+                            <ul>
+                                {% for item in skill.learned %}
+                                    <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>Projects / Practice</h3>
+                            <ul>
+                                {% for item in skill.projects %}
+                                    <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const menuButton = document.querySelector(".menu-btn");
+        const navLinks = document.querySelector(".nav-link");
+
+        if (menuButton && navLinks) {
+            menuButton.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/scroll-animations.js') }}"></script>
+</body>
+</html>

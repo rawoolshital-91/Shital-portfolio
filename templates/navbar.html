@@ -1,0 +1,18 @@
+<nav class="navbar">
+    <div class="nav-content">
+        
+
+        <div class="nav-link">
+            <a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a>
+            <a href="{{ url_for('about_page') }}"><i class="fas fa-user"></i> About</a>
+            <a href="{{ url_for('section_page', section_name='skills') }}"><i class="fas fa-code"></i> Skills</a>
+            <a href="{{ url_for('section_page', section_name='projects') }}"><i class="fas fa-project-diagram"></i> Work</a>
+            <a href="{{ url_for('section_page', section_name='education') }}"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="{{ url_for('section_page', section_name='contact') }}"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+
+        <button class="menu-btn" type="button" aria-label="Open navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>

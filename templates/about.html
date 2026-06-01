@@ -1,0 +1,277 @@
+<section id="about" class="about">
+  <style>
+    .about {
+      position: relative;
+      padding: 8rem 2rem;
+      background: linear-gradient(
+        135deg,
+        #f7fffd 0%,
+        #e8f7f3 48%,
+        #ffffff 100%
+      );
+      color: #14111f;
+      overflow: hidden;
+    }
+
+    .about::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      left: -160px;
+      top: 80px;
+      background: rgba(59, 130, 246, 0.16);
+      border-radius: 50%;
+      filter: blur(70px);
+    }
+
+    .about::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -140px;
+      bottom: 60px;
+      background: rgba(245, 158, 11, 0.13);
+      border-radius: 50%;
+      filter: blur(70px);
+    }
+
+    .about-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 390px 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .profile-img {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-img::before {
+      content: "";
+      position: absolute;
+      width: 310px;
+      height: 380px;
+      top: -22px;
+      left: 10px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #3b82f6, #f59e0b);
+      transform: rotate(-5deg);
+      z-index: -1;
+      opacity: 0.9;
+    }
+
+    .profile-img img {
+      width: 320px;
+      height: 390px;
+      object-fit: cover;
+      border-radius: 26px;
+      border: 8px solid #ffffff;
+      box-shadow: 0 24px 60px rgba(20, 91, 86, 0.22);
+    }
+
+    .profile-monogram {
+      width: 320px;
+      height: 390px;
+      border-radius: 34px;
+      border: 8px solid #ffffff;
+      display: grid;
+      place-items: center;
+      color: #0f172a;
+      font-size: 6rem;
+      font-weight: 800;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.82),
+          rgba(255, 255, 255, 0.28)
+        ),
+        linear-gradient(135deg, #93c5fd, #fbbf24);
+      box-shadow: 0 24px 60px rgba(20, 91, 86, 0.22);
+    }
+
+    .about-link {
+      margin-top: 30px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .about-link a {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #14111f;
+      font-size: 1.25rem;
+      text-decoration: none;
+      background: #ffffff;
+      border: 1px solid rgba(59, 130, 246, 0.18);
+      box-shadow: 0 12px 28px rgba(20, 91, 86, 0.1);
+      transition: 0.3s ease;
+    }
+
+    .about-link a:hover {
+      color: #fff;
+      background: #3b82f6;
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(59, 130, 246, 0.3);
+    }
+
+    #whatsapp {
+      font-size: 1.35rem;
+    }
+
+    .about-text {
+      position: relative;
+      padding: 46px;
+      background: rgba(255, 255, 255, 0.86);
+      border-radius: 28px;
+      border: 1px solid rgba(59, 130, 246, 0.16);
+      box-shadow: 0 24px 70px rgba(20, 91, 86, 0.12);
+    }
+
+    .about .section-title {
+      font-size: 3rem;
+      margin-bottom: 24px;
+      font-weight: 800;
+      color: #14111f;
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
+
+    .about .section-title::after {
+      content: "";
+      display: block;
+      width: 78px;
+      height: 5px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #2563eb, #f59e0b);
+      margin-top: 14px;
+    }
+
+    .about-short-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #393247;
+      margin-bottom: 20px;
+    }
+
+    .read-more-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      min-width: 150px;
+      height: 50px;
+      border-radius: 14px;
+      color: #fff;
+      background: #14111f;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .read-more-link:hover {
+      background: #3b82f6;
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(59, 130, 246, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .about {
+        padding: 6rem 1.2rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+
+      .profile-img::before {
+        left: 50%;
+        transform: translateX(-50%) rotate(-5deg);
+      }
+
+      .profile-img img,
+      .profile-monogram {
+        width: 280px;
+        height: 340px;
+      }
+
+      .about-text {
+        padding: 36px 26px;
+      }
+
+      .about .section-title {
+        font-size: 2.4rem;
+      }
+
+      .about .section-title::after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
+
+  <div class="about-content">
+    <div class="profile-img">
+      <div class="profile-monogram" aria-label="Shital Rawool">SR</div>
+
+      <div class="about-link">
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=rawoolshital@gmail.com"
+          target="_blank"
+          aria-label="Email Shital Rawool"
+          ><i class="fa-regular fa-envelope"></i
+        ></a>
+        <a href="tel:+917620452826" aria-label="Call Shital Rawool"
+          ><i class="fa-solid fa-phone"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/shitalrawool"
+          target="_blank"
+          aria-label="Open Shital Rawool LinkedIn profile"
+          ><i class="fa-brands fa-linkedin-in"></i
+        ></a>
+        <a
+          href="https://github.com/rawoolshital-91"
+          target="_blank"
+          aria-label="Open Shital Rawool GitHub profile"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <h2 class="section-title">About me</h2>
+
+      <p class="about-short-text">
+        I began my career in 2016 with Tata Communications as an Associate
+        Network Engineer, where I worked for nearly four years. I initially
+        joined as a third-party employee and was later selected for a payroll
+        position as a Customer Service Executive. During my tenure, I was part
+        of the GPD team, responsible for managing the top 50 domestic and
+        international customers of Tata Communications. Subsequently, I joined
+        GTT Communications as a Network Analyst. However, due to a mismatch
+        between the promised role and the actual responsibilities, I decided to
+        move on after seven months..
+      </p>
+
+      <a href="{{ url_for('about_page') }}" class="read-more-link">Read More</a>
+    </div>
+  </div>
+</section>

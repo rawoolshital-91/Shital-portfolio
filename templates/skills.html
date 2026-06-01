@@ -1,0 +1,262 @@
+<section class="skills" id="skills">
+    <style>
+        .skills {
+            padding: 6rem 2rem;
+            background: var(--light-color);
+            color: var(--text-color);
+        }
+
+        .skills-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills .section-title {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            font-weight: 800;
+            color: #14111f;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        .skills .section-title::after {
+            content: "";
+            display: block;
+            width: 78px;
+            height: 5px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #2563eb, #f59e0b);
+            margin-top: 14px;
+        }
+
+        .skills-grid {
+            margin-top: 4rem;
+            padding: 2rem 0;
+        }
+
+        .skill-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skills-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .skills-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(59, 130, 246, 0.22);
+        }
+
+        .slick-slide {
+            transform: scale(0.82);
+            opacity: 0.5;
+            filter: blur(3px);
+            transition: all 0.5s ease;
+            padding: 10px;
+        }
+
+        .slick-center {
+            transform: scale(1) !important;
+            opacity: 1 !important;
+            filter: blur(0) !important;
+            z-index: 99;
+        }
+
+        .slick-center .skills-card {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .slick-list {
+            overflow: visible !important;
+        }
+
+        .slick-track {
+            display: flex;
+            align-items: center;
+        }
+
+        .slick-prev,
+        .slick-next {
+            width: 45px !important;
+            height: 45px !important;
+            background: #fff !important;
+            border-radius: 50%;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .slick-prev {
+            left: 10px !important;
+        }
+
+        .slick-next {
+            right: 10px !important;
+        }
+
+        .slick-prev::before,
+        .slick-next::before {
+            color: #000 !important;
+            font-size: 24px !important;
+            opacity: 1 !important;
+        }
+
+        .skills-card i {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skills-card img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 15px;
+        }
+
+        #skill-image,
+        #skill-image1 {
+            height: 80px;
+            width: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .skills-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 780px) {
+            .skills-card {
+                max-width: 240px;
+                min-height: 260px;
+            }
+        }
+    </style>
+
+    <div class="skills-content">
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills-grid">
+            <a href="{{ url_for('skill_page', skill_name='python') }}" class="skill-link">
+                <div class="skills-card">
+                    <i class="fa-brands fa-python"></i>
+                    <h3>PYTHON</h3>
+                    <p>I build efficient applications and backend solutions using Python.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='django') }}" class="skill-link">
+                <div class="skills-card">
+                    <img src="{{ url_for('static', filename='images/django.jpg') }}" id="skill-image1" alt="Django">
+                    <h3>DJANGO</h3>
+                    <p>Experienced in Django for backend development and dynamic web apps.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='flask') }}" class="skill-link">
+                <div class="skills-card">
+                    <img src="{{ url_for('static', filename='images/flask_img.png') }}" id="skill-image" alt="Flask">
+                    <h3>FLASK</h3>
+                    <p>I build dynamic web applications and backend solutions using Flask.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='data-analytics') }}" class="skill-link">
+                <div class="skills-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>DATA ANALYTICS</h3>
+                    <p>Analyzing data to discover trends and support better decisions.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='html') }}" class="skill-link">
+                <div class="skills-card">
+                    <i class="fa-brands fa-html5"></i>
+                    <h3>HTML</h3>
+                    <p>I use HTML to build clean, accessible, and structured web pages.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='css') }}" class="skill-link">
+                <div class="skills-card">
+                    <i class="fa-brands fa-css3"></i>
+                    <h3>CSS</h3>
+                    <p>I bring designs to life using modern CSS techniques.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='bootstrap') }}" class="skill-link">
+                <div class="skills-card">
+                    <i class="fa-brands fa-bootstrap"></i>
+                    <h3>BOOTSTRAP</h3>
+                    <p>Building responsive and modern user interfaces efficiently.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='sql') }}" class="skill-link">
+                <div class="skills-card">
+                    <i class="fa-solid fa-database"></i>
+                    <h3>SQL</h3>
+                    <p>Experienced in database management, querying, and table creation.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='git') }}" class="skill-link">
+                <div class="skills-card">
+                    <i class="fa-brands fa-git"></i>
+                    <h3>GIT</h3>
+                    <p>Version control, GitHub workflow, and project management.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='numpy') }}" class="skill-link">
+                <div class="skills-card">
+                    <i class="fa-solid fa-cubes"></i>
+                    <h3>NUMPY</h3>
+                    <p>Numerical computing and efficient array operations in Python.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='pandas') }}" class="skill-link">
+                <div class="skills-card">
+                    <i class="fa-solid fa-grip"></i>
+                    <h3>PANDAS</h3>
+                    <p>Data analysis, manipulation, and structured dataset handling.</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('skill_page', skill_name='matplotlib') }}" class="skill-link">
+                <div class="skills-card">
+                    <i class="fa-solid fa-chart-column"></i>
+                    <h3>MATPLOTLIB</h3>
+                    <p>Creating visualizations, charts, and graphical reports.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>

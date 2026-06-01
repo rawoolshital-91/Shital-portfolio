@@ -1,0 +1,284 @@
+<section class="contact" id="contact">
+    <style>
+        .contact {
+            position: relative;
+            padding: 7rem 2rem;
+            background:
+                radial-gradient(circle at 18% 20%, rgba(59, 130, 246, 0.14), transparent 28%),
+                radial-gradient(circle at 82% 80%, rgba(245, 158, 11, 0.12), transparent 32%),
+                linear-gradient(135deg, #ffffff 0%, #e8f7f3 48%, #f7fffd 100%);
+            color: #14111f;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            left: -160px;
+            top: 80px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.14);
+            filter: blur(70px);
+        }
+
+        .contact::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            right: -140px;
+            bottom: 60px;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, 0.12);
+            filter: blur(70px);
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #14111f;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-title::after {
+            content: "";
+            display: block;
+            width: 86px;
+            height: 5px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #2563eb, #f59e0b);
+            margin: 16px auto 0;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 34px;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 22px;
+        }
+
+        .contact-info-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            min-height: 112px;
+            padding: 26px;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(59, 130, 246, 0.14);
+            box-shadow: 0 24px 70px rgba(20, 91, 86, 0.12);
+            transition: 0.35s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 80px rgba(20, 91, 86, 0.18);
+        }
+
+        .contact-info-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            background: #dbeafe;
+            font-size: 1.65rem;
+            flex: 0 0 auto;
+        }
+
+        .contact-info-card h3 {
+            color: #14111f;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-info-card a,
+        .contact-info-card p {
+            color: #2f3650;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-info-card a:hover {
+            color: #2563eb;
+        }
+
+        .contact-form {
+            padding: 42px;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid rgba(59, 130, 246, 0.16);
+            box-shadow: 0 24px 70px rgba(20, 91, 86, 0.12);
+        }
+
+        .form-group {
+            margin-bottom: 1.4rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.55rem;
+            color: #312a40;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.95rem 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.18);
+            border-radius: 14px;
+            font-size: 1rem;
+            color: #14111f;
+            background: rgba(255, 255, 255, 0.92);
+            outline: none;
+            transition: 0.3s ease;
+            resize: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+        }
+
+        .submit-btn {
+            width: 100%;
+            height: 54px;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2563eb, #f59e0b);
+            box-shadow: 0 16px 34px rgba(59, 130, 246, 0.28);
+            transition: 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 42px rgba(59, 130, 246, 0.38);
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 5.5rem 1.2rem;
+            }
+
+            .contact-form {
+                padding: 28px;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info-card {
+                padding: 22px;
+            }
+        }
+    </style>
+
+    <div class="contact-content">
+        <h2 class="contact-title">Get In Touch</h2>
+
+        <div class="contact-layout">
+            <div class="contact-info">
+                <div class="contact-info-card">
+                    <span class="contact-info-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+
+                    <div>
+                        <h3>Call Me</h3>
+                        <a href="tel:+917620452826">+91 7620452826</a>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <span class="contact-info-icon">
+                        <i class="fa-regular fa-envelope"></i>
+                    </span>
+
+                    <div>
+                        <h3>Email Me</h3>
+                        <a
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=rawoolshital@gmail.com"
+                            target="_blank"
+                        >rawoolshital@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <span class="contact-info-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+
+                    <div>
+                        <h3>Location</h3>
+                        <p>Pune, Maharashtra, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        pattern="^[A-Za-z]+ [A-Za-z]+$"
+                        title="Enter first and last name, for example Shital Rawool"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        pattern=".+@gmail\.com$"
+                        title="Email must end with @gmail.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea
+                        rows="5"
+                        id="message"
+                        name="message"
+                        maxlength="300"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>

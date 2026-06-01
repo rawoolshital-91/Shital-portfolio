@@ -1,0 +1,253 @@
+<section class="works" id="work">
+  <style>
+    .works {
+      position: relative;
+      padding: 7rem 2rem;
+      background:
+        radial-gradient(
+          circle at 14% 18%,
+          rgba(59, 130, 246, 0.12),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 86% 80%,
+          rgba(245, 158, 11, 0.1),
+          transparent 32%
+        ),
+        linear-gradient(135deg, #f7fffd 0%, #ffffff 44%, #fff7e6 100%);
+      color: #14111f;
+      overflow: hidden;
+    }
+
+    .works::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      left: -180px;
+      bottom: 80px;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.12);
+      filter: blur(70px);
+    }
+
+    .work-section {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .works .section-title {
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800;
+      color: #14111f;
+      margin-bottom: 4rem;
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
+
+    .works .section-title::after {
+      content: "";
+      display: block;
+      width: 88px;
+      height: 5px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #2563eb, #f59e0b);
+      margin-top: 16px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .work-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(59, 130, 246, 0.16);
+      box-shadow: 0 22px 60px rgba(20, 91, 86, 0.12);
+      transition: 0.35s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 28px 80px rgba(20, 91, 86, 0.18);
+    }
+
+    .work-img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .work-img-fit {
+      object-fit: contain;
+      background: #142b68;
+    }
+
+    .work-info {
+      padding: 28px;
+    }
+
+    .work-info h2 {
+      font-size: 1.35rem;
+      color: #14111f;
+      margin-bottom: 14px;
+    }
+
+    .work-info p {
+      color: #4a4358;
+      line-height: 1.75;
+      font-size: 0.98rem;
+    }
+
+    .work-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .work-actions a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      height: 46px;
+      padding: 0 18px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .details-btn {
+      color: #fff;
+      background: #14111f;
+    }
+
+    .source-btn {
+      color: #2563eb;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.22);
+    }
+
+    .work-actions a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(59, 130, 246, 0.24);
+    }
+
+    .details-btn:hover {
+      background: #3b82f6;
+    }
+
+    @media (max-width: 1024px) {
+      .works-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .works {
+        padding: 5.5rem 1.2rem;
+      }
+
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-img {
+        height: 220px;
+      }
+    }
+  </style>
+
+  <div class="work-section">
+    <h2 class="section-title">Recent Works</h2>
+
+    <div class="works-grid">
+      <div class="work-card">
+        <img
+          src="{{ url_for('static', filename='images/jango.jpg') }}"
+          alt="Django Polls App"
+          class="work-img"
+        />
+
+        <div class="work-info">
+          <h2>Django Polls App</h2>
+
+          <p>
+            Developed a Django-based Polls Application using Python, HTML, CSS,
+            and SQLite/MySQL with dynamic voting and question management.
+          </p>
+
+          <div class="work-actions">
+            <a
+              href="{{ url_for('project_page', project_name='django-polls') }}"
+              class="details-btn"
+            >
+              View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <img
+          src="{{ url_for('static', filename='images/flask.jpg') }}"
+          alt="Professional Portfolio Site"
+          class="work-img"
+        />
+
+        <div class="work-info">
+          <h2>Professional Portfolio Site</h2>
+
+          <p>
+            Developed a responsive portfolio website using Flask, Python, HTML,
+            CSS, and JavaScript to showcase my profile professionally.
+          </p>
+
+          <div class="work-actions">
+            <a
+              href="{{ url_for('project_page', project_name='portfolio-site') }}"
+              class="details-btn"
+            >
+              View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <img
+          src="{{ url_for('static', filename='images/web.jpg') }}"
+          alt="Web Scraping Project"
+          class="work-img work-img-fit"
+        />
+
+        <div class="work-info">
+          <h2>Web Scraping</h2>
+
+          <p>
+            Developed a Python web scraping application using BeautifulSoup and
+            Requests to extract medicine details and pricing data.
+          </p>
+
+          <div class="work-actions">
+            <a
+              href="{{ url_for('project_page', project_name='web-scraping') }}"
+              class="details-btn"
+            >
+              View Details
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

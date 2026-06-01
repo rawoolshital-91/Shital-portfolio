@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>Shital Rawool Portfolio</title>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    <header id="home" class="header">
+        <div class="header-content">
+            <div class="hero-text">
+                <span class="intro-text">HELLO, I'M</span>
+
+                <h1>
+                    Shital <span>Rawool</span>
+                </h1>
+
+                <h3>Python Developer</h3>
+
+                <p>
+                    Dedicated to building high-performance web applications and turning
+                    creative ideas into seamless digital experiences.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="{{ url_for('section_page', section_name='contact') }}" class="btn-primary">Get In Touch</a>
+
+                    <a href="{{ url_for('static', filename='resume/shital_CV.pdf') }}"
+                       class="btn-secondary" target="_blank">
+                       View Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% include 'about.html' %}
+
+    {% include 'skills.html' %}
+
+    {% include 'projects.html' %}
+
+    {% include 'education.html' %}
+
+    {% include 'contact.html' %}
+
+    <footer class="footer">
+        <p>&copy; 2026 <a href="/" class="Footername">Shital Rawool</a> All rights reserved.</p>
+
+        <div class="social-links">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rawoolshital@gmail.com" target="_blank">
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+
+            <a href="https://wa.me/917620452826?text=Hi Shital Rawool, I visited your portfolio." target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a href="{{ url_for('static', filename='resume/shital_CV.pdf') }}" target="_blank">
+                <i class="fa-solid fa-book-open-reader"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    {% if scroll_target %}
+    <script>
+        window.addEventListener("load", function () {
+            const target = document.getElementById("{{ scroll_target }}");
+
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
+    </script>
+    {% endif %}
+
+    <script>
+        const menuButton = document.querySelector(".menu-btn");
+        const navLinks = document.querySelector(".nav-link");
+
+        if (menuButton && navLinks) {
+            menuButton.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
+        }
+    </script>
+
+    <script>
+        $('.skills-grid').slick({
+            centerMode: true,
+            centerPadding: '0px',
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            arrows: true,
+            dots: false,
+            focusOnSelect: true,
+            speed: 500
+        });
+    </script>
+
+    <script src="{{ url_for('static', filename='js/scroll-animations.js') }}"></script>
+
+</body>
+</html>
